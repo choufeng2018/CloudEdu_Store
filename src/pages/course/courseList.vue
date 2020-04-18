@@ -1,12 +1,6 @@
 <template>
   <div class="course-list">
-    <div class="head">
-      <div class="titleBar">课程设置</div>
-      <div class="titlePic">
-        <q-img src="~assets/quasar-logo-full.svg" class="pcimg" @click="createCourse"></q-img>
-        <q-img src="~assets/quasar-logo-full.svg" class="pcimg"></q-img>
-      </div>
-    </div>
+    <v-header :headTop="headTop"></v-header>
     <q-tabs
       v-model="tab"
       class="text-grey bac_tab"
@@ -45,15 +39,31 @@ export default {
   name: 'PageIndex',
   data () {
     return {
-      tab: 'all'
+      tab: 'all',
+      headTop: {
+        title: '课程设置',
+        img: [
+          {
+            url: 'https://cdn.quasar.dev/img/mountains.jpg',
+            path: 'createCourse'
+          },
+          {
+            url: 'https://cdn.quasar.dev/img/mountains.jpg',
+            path: 'createCourse'
+          }
+        ]
+      }
     }
   },
   methods: {
-    createCourse () {
-      this.$router.push({
-        path: 'createCourse'
-      })
-    }
+    // createCourse () {
+    //   this.$router.push({
+    //     path: 'createCourse'
+    //   })
+    // }
+  },
+  components: {
+    'v-header': () => import('components/header.vue')
   }
 }
 </script>

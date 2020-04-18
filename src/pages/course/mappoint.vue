@@ -15,12 +15,12 @@ export default {
     var self = this
     // self.initQQMap()
 
-    this.loadMap().then(function () {
-      // var geolocation = new window.qq.maps.Geolocation('L2VBZ-IM6L6-ENCSE-EKZMB-NKZN2-3MB2O', 'TICKETSYSTEM')
-      // geolocation.getIpLocation((position) => {
-      //   console.log(position)
-      self.initQQMap()
-      // })
+    self.loadMap().then(function () {
+      const geolocation = new window.qq.maps.Geolocation('L2VBZ-IM6L6-ENCSE-EKZMB-NKZN2-3MB2O', 'TICKETSYSTEM')
+      geolocation.getIpLocation((position) => {
+        console.log(position)
+        self.initQQMap()
+      })
     })
   },
   methods: {

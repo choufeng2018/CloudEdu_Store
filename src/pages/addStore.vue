@@ -1,5 +1,6 @@
 <template>
   <div class="store">
+    <v-header :headTop="headTop"></v-header>
     <q-form @submit.prevent="submitForm">
       <div class="form-group-module">
         <div class="store-logo">
@@ -94,28 +95,33 @@
 </template>
 
 <script>
-// import { isRequired } from 'assets/uitls/validate'
 export default {
   name: 'PageIndex',
   data () {
     return {
-      form: {}
+      form: {},
+      headTop: {
+        title: '课程设置'
+      }
     }
   },
   created () {},
   methods: {
     submitForm () {
       this.$router.push({
-        path: 'map'
+        path: 'courseList'
       })
     }
+  },
+  components: {
+    'v-header': () => import('components/header.vue')
   }
 }
 </script>
 <style lang="stylus" scoped>
 .store {
   background-color: #f6f6f6;
-  margin: 56px auto 0 auto;
+  margin: 0 auto 0 auto;
   display: block;
 
   .store-logo {

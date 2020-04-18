@@ -1,5 +1,6 @@
 <template>
   <div class="store">
+    <v-header :headTop="headTop"></v-header>
     <q-form @submit.prevent="submitForm">
       <div class="form-group-module">
         <div class="store-category">
@@ -32,8 +33,15 @@ export default {
   name: 'PageIndex',
   data () {
     return {
-      form: {}
+      form: {},
+      headTop: {
+        title: '选择课程类型',
+        label: '保存'
+      }
     }
+  },
+  components: {
+    'v-header': () => import('components/header.vue')
   }
 }
 </script>
